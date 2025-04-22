@@ -1,30 +1,35 @@
-const { Client } = require(`pg`);
-const client = require('./db');
+
+// db.js
+const { Client } = require('pg');
+require('dotenv').config();
 
 const client = new Client({
-    user: `postgres`,
-    host: `localhost`,
-    database: `flame_db`,
-    password: `yourpassword`,
-    port: 5432,
-})
-
-
-const insertProduct = async (name, price) => {
-    const query = 'INSERT INTO products (name, price) VALUES ($1, $2) RETURNING *';
-    const values = [name, price];
-
-    try {
-        const res = await client.query(query, values);
-        console.log('Добавлен товар:', res.rows[0]);
-    } catch (err) {
-        console.error('Ошибка при вставке товара', err.stack);
-    }
-};
-insertProduct('Огнетушитель ОП-10', 1500);
+  user: process.env.DB_USER,
+  host: process.env.DB_HOST,
+  database: process.env.DB_NAME,
+  password: process.env.DB_PASSWORD,
+  port: Number(process.env.DB_PORT), // порт базы данных
+});
 
 client.connect()
-    .then(() => console.log(`Успешное подключение к базе данных`))
-    .catch(() => console.log(`Ошибка при подключении к базе данных`, err.stack))
+  .then(() => console.log('✅ Подключение к базе успешно'))
+  .catch(err => console.error('❌ Ошибка подключения:', err.stack));
 
-module.exports = client   
+// 🔥 ВАЖНО: экспортируем client
+module.exports = client;
+
+// const getProducts = async () => {
+//   try {
+//     const res = await client.query('SELECT * FROM products');
+//     console.log('📦 Все товары:');
+//     console.table(res.rows);
+//   } catch (err) {
+//     console.error('❌ Ошибка при запросе товаров:', err.stack);
+//   } finally {
+//     client.end();
+//   }
+// };
+
+
+
+// getProducts();
