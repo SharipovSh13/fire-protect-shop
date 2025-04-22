@@ -11,8 +11,9 @@ export default function Header() {
         <div className="flex items-center justify-between w-[100%]">
 
             <Link href={"/"} className="hover:underline font-bold text-red-700 flex items-center gap-2  dark:text-white ">
-                <Image src={"/fLAME.TJnapanavvv.png"} width={60} height={40} className="rounded-[50%] " alt="лого Flame.tj" />
-                <TypographyH1 className=" text-sm md:text-xl dark:text-orange-600">
+                <Image src={"/fLAME.TJnapanavvv.png"}  width={50} height={40} className="rounded-[50%] " alt="лого Flame.tj" />
+                {/* <img className="rounded-[50%] w-[50px]" src="/fLAME.TJnapanavvv.png" alt="Описание изображения"   /> */}
+                <TypographyH1 className=" text-sm md:text-xl dark:text-orange-500">
                     FLAME.TJ
                 </TypographyH1>
             </Link>
