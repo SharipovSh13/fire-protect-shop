@@ -1,9 +1,9 @@
+const client = require('./db'); // Для CommonJS/ Импортируем как default export
 require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
-const client = require('./db'); // подключение к базе
 
-const app = express();
+const app = express();                  
 
 app.use(cors());
 app.use(express.json());

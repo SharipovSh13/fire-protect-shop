@@ -43,7 +43,7 @@ export default function AsideBar() {
                         <TypographyH1 className="font-bold p-2 w-[95%] m-auto rounded-sm dark:bg-gray-200 mt-2 dark:text-black bg-[#B41414] text-white ">Продукты</TypographyH1>
                     </Link>
                     <Accordion type="single" collapsible className="w-[100%]">
-                        {products?.slice(0,8).map((el, index) => {
+                        {products?.slice(0,8).map((el) => {
                              return (
 
                                 <AccordionItem value={`item_1${el.id}`} key={el.id}>
