@@ -79,21 +79,21 @@
 // // 🔥 ВАЖНО: экспортируем client
 // module.exports = pool;
 
-// // const getProducts = async () => {
-// //   try {
-// //     const res = await client.query('SELECT * FROM products');
-// //     console.log('📦 Все товары:');
-// //     console.table(res.rows);
-// //   } catch (err) {
-// //     console.error('❌ Ошибка при запросе товаров:', err.stack);
-// //   } finally {
-// //     client.end();
-// //   }
-// // };
+const getProducts = async () => {
+  try {
+    const res = await client.query('SELECT * FROM products');
+    console.log('📦 Все товары:');
+    console.table(res.rows);
+  } catch (err) {
+    console.error('❌ Ошибка при запросе товаров:', err.stack);
+  } finally {
+    client.end();
+  }
+};
 
 
 
-// // getProducts();
+getProducts();
 
 
 
