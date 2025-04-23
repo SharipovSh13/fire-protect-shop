@@ -1,9 +1,9 @@
 
 // db.js
-const { Client } = require('pg');
+const { Pool } = require('pg');
 require('dotenv').config();
 
-const client = new Client({
+const pool = new Pool({
   user: process.env.DB_USER,
   host: process.env.DB_HOST,
   database: process.env.DB_NAME,
@@ -11,12 +11,12 @@ const client = new Client({
   port: Number(process.env.DB_PORT), // порт базы данных
 });
 
-client.connect()
+pool.connect()
   .then(() => console.log('✅ Подключение к базе успешно'))
   .catch(err => console.error('❌ Ошибка подключения:', err.stack));
 
 // 🔥 ВАЖНО: экспортируем client
-module.exports = client;
+module.exports = pool;
 
 // const getProducts = async () => {
 //   try {

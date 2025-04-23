@@ -1,7 +1,7 @@
-const client = require('./db'); // Для CommonJS/ Импортируем как default export
 require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
+const pool = require('./db');
 
 const app = express();                  
 
@@ -16,7 +16,7 @@ app.get('/', (req, res) => {
 // Получение всех товаров из базы
 app.get('/products', async (req, res) => {
   try {
-    const result = await client.query('SELECT * FROM products');
+    const result = await pool.query('SELECT * FROM products');
     res.json(result.rows);
   } catch (err) {
     console.error('Ошибка при получении товаров:', err);
@@ -33,7 +33,7 @@ app.post('/products', async (req, res) => {
   }
 
   try {
-    const result = await client.query(
+    const result = await pool.query(
       'INSERT INTO products (name, price) VALUES ($1, $2) RETURNING *',
       [name, price]
     );
