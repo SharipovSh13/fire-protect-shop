@@ -1,5 +1,11 @@
-export interface IProduct {
-    id: number
-    name: string
-    price: number
-  }
+interface SubCategory {
+  subCatId: number;
+  subName: string;
+  quantity: number;
+}
+
+export interface IProducts {
+  id: string;
+  productName: string;
+  category: SubCategory[];
+}
