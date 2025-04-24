@@ -1,11 +1,11 @@
-interface SubCategory {
+export interface SubCategory {
   subCatId: number;
   subName: string;
   quantity: number;
 }
 
 export interface IProducts {
-  id: string;
+  id: number;
   productName: string;
   category: SubCategory[];
 }
