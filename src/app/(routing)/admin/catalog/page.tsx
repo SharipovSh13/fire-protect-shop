@@ -4,8 +4,10 @@ import API from "@/shared/components/lib/api"
 import { Button } from "@/shared/components/ui/button"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/shared/components/ui/card"
 import { Input } from "@/shared/components/ui/input"
+import { Avatar, AvatarFallback, AvatarImage } from "@radix-ui/react-avatar"
+import { HoverCard, HoverCardContent, HoverCardTrigger } from "@radix-ui/react-hover-card"
 import axios from "axios"
-import {  Plus } from "lucide-react"
+import {  CalendarDays, CirclePlus, Plus } from "lucide-react"
 import { useState } from "react"
 
 export default function Catalog() {
@@ -17,6 +19,8 @@ export default function Catalog() {
     const [nameProdAdd, setNameProdAdd] = useState<string>("")
     const [priceProdAdd, setPriceProdAdd] = useState<number | null>(null)
 
+    const today=new Date()
+    const formated=today.toLocaleDateString("tj-TJ")
 
 
     async function addProducts() {
@@ -37,6 +41,36 @@ export default function Catalog() {
 
 
     return <>
+    <header className="mb-20">
+        <div className="w-[90%] m-auto p-2">
+
+      <HoverCard>
+      <HoverCardTrigger asChild>
+        <Button variant="default"><CirclePlus/></Button>
+      </HoverCardTrigger>
+      <HoverCardContent className="w-70 p-4 bg-muted/90 dark:bg-[#141a2a] border-1 border-gray-300">
+        <div className="flex justify-between space-x-4">
+          <Avatar>
+            <AvatarImage className="" src="https://cdn.baltica01.ru/sites/default/files/styles/170x170/public/tovar/shchit-pozharnyi-metallicheskii-otkrytyi-7185.jpg" />
+            <AvatarFallback>shp</AvatarFallback>
+          </Avatar>
+          <div className="space-y-1">
+            <h4 className="text-sm font-semibold">добавлять элементы</h4>
+            <p className="text-sm">
+              The React Framework – created and maintained by @vercel.
+            </p>
+            <div className="flex items-center pt-2">
+              <CalendarDays className="mr-2 h-4 w-4 opacity-70" />{" "}
+              <span className="text-xs text-muted-foreground">
+                {formated}
+              </span>
+            </div>
+          </div>
+        </div>
+      </HoverCardContent>
+    </HoverCard>
+        </div>
+    </header>
         <div className="w-[90%] m-auto ">
            
             <Card className="mt-12 mb-12 p-2 dark:bg-slate-800/40 ">
