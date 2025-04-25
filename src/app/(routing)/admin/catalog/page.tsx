@@ -21,12 +21,12 @@ export default function Catalog() {
 
     async function addProducts() {
         const newUser = {
-            name: nameProdAdd,
+            productName: nameProdAdd,
             price: priceProdAdd,
 
         }
         try {
-            await axios.post(`${API}/products`, newUser)
+            await axios.post(`${API}/flame`, newUser)
         } catch (error) {
             console.log(error);
 
