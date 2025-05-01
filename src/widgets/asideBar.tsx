@@ -38,7 +38,7 @@ export default function AsideBar() {
 
 
     return <>
-        <div className="w-64  h-fill dark:text-gray-200   dark:bg-[#141a2a] bg-muted/40 hidden sm:block md:block dark:border-r-1 dark:border-gray-500  ">
+        <div className="w-64  h-full dark:text-gray-200   dark:bg-[#141a2a] bg-muted/40 hidden  md:block dark:border-r-1 dark:border-gray-500  ">
             <aside className="p-4">
                 <nav>
                     <Link href={"catalog"}>

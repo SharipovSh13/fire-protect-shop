@@ -11,7 +11,7 @@ export default function Header() {
         <div className="flex items-center justify-between w-[100%]">
 
             <Link href={"/"} className="hover:underline font-bold text-red-700 flex items-center gap-2  dark:text-white ">
-                <Image src={"/fLAME.TJnapanavvv.png"}  width={50} height={40} className="rounded-[50%] " alt="лого Flame.tj" />
+                <Image src={"/fLAME.TJnapanavvv.png"} width={50} height={40} className="rounded-[50%] " alt="лого Flame.tj" />
                 {/* <img className="rounded-[50%] w-[50px]" src="/fLAME.TJnapanavvv.png" alt="Описание изображения"   /> */}
                 <TypographyH1 className=" text-sm md:text-xl dark:text-orange-500">
                     FLAME.TJ
@@ -25,11 +25,11 @@ export default function Header() {
                         <li className="font-bold">
                             <Link href={"/"} className="hover:underline">HOME</Link>
                         </li>
-                       
+
                         <li className="font-bold  ">
                             <Link href={"about-us"} className="hover:underline">ABOUT</Link>
                         </li>
-                        <li className="font-bold hidden lg:block">
+                        <li className="font-bold ">
                             <Link href={"catalog"} className="hover:underline">SHOP</Link>
                         </li>
                         <li className="font-bold">
@@ -44,7 +44,7 @@ export default function Header() {
                         <ul className="flex items-center justify-around ">
                             <li>
                                 <Link href={"catalog"}>
-                                <Search/>
+                                    <Search />
                                 </Link>
                             </li>
                             <li className="font-bold flex text-[10px]  border-l-[2px] border-black dark:border-white">
@@ -52,7 +52,7 @@ export default function Header() {
                                     <ShoppingCart size={"24px"} className="dark:color-white   " />
                                 </Link>
                                 <p className="hidden lg:block">
-                                Cart
+                                    Cart
                                 </p>
 
                             </li>
