@@ -32,7 +32,7 @@ export default function AsideBar() {
     }, []);
 
 
-    console.log("API         " + API);
+    
 
 
 
