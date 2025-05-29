@@ -1,12 +1,20 @@
+
 export interface SubCategory {
-  subCatId: number;
+  subId: string;
   subName: string;
-  quantity: number;
 }
 
 export interface IProducts {
-  id: number;
-  productName: string;
-  category: SubCategory[];
-  price:number
+  categoryName: string;
+  img: string;
+  subCategory: SubCategory[];
+  id: string;
+}
+
+export interface IMycommand{
+  rolUsers:string,
+  userName:string
+  userAvatar:string,
+  userPhoneNumber:string
+  id:string
 }

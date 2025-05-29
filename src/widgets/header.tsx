@@ -1,22 +1,21 @@
 "use client"
 import { ModeToggle } from "@/shared/components/darkMode";
 import { Search, ShieldUser, ShoppingCart } from "lucide-react";
-import Image from "next/image";
 import Link from "next/link";
 import { TypographyH1 } from "@/shared/components/typografy/typographyH1";
 import SidebarDrawerMedia from "./SidebarDrawerMedia";
+import CompanyName from "@/shared/components/ui/company-name";
+import CompanyLogo from "@/shared/components/ui/companyLogotipe";
 
 export default function Header() {
-    return <header className=" flex justify-between items-center p-1 w-[100%]  m-auto  bg-muted/60  dark:bg-[#141a2a] border-b border-gray-200/50 dark:text-white ">
+    return <header className="  flex justify-between items-center p-1 w-[100%]  m-auto  bg-muted/90  dark:bg-[#141a2a] border-b border-gray-100/50 dark:text-gray-100 text-slate-700 ">
         <div className="flex items-center justify-between w-[100%]">
 
             <Link href={"/"} className="hover:underline font-bold text-red-700 flex items-center gap-2  dark:text-white ">
-                <Image src={"/fLAME.TJnapanavvv.png"} width={50} height={40} className="rounded-[50%] " alt="лого Flame.tj" />
-                {/* <img className="rounded-[50%] w-[50px]" src="/fLAME.TJnapanavvv.png" alt="Описание изображения"   /> */}
-                <TypographyH1 className=" text-sm md:text-xl dark:text-orange-500">
-                    FLAME.TJ
-                </TypographyH1>
+                <CompanyLogo customStyle="w-[50px]" />
             </Link>
+            <CompanyName />
+
 
             <div className="flex w-[40%]  justify-between items-center       max-sm:hidden  sm:w-[60%] ">
 
@@ -43,7 +42,7 @@ export default function Header() {
                     <nav className=" w-[45%]  ">
                         <ul className="flex items-center justify-around ">
                             <li>
-                                <Link href={"catalog"}>
+                                <Link href={"/catalog"}>
                                     <Search />
                                 </Link>
                             </li>
@@ -51,8 +50,7 @@ export default function Header() {
                                 <Link href={"cart"} className="flex items-center hover:underline">
                                     <ShoppingCart size={"24px"} className="dark:color-white   " />
                                 </Link>
-                                <p className="hidden lg:block">
-                                    Cart
+                                <p className="hidden lg:block text-orange-500">0
                                 </p>
 
                             </li>

@@ -1,71 +1,131 @@
 "use client"
+import { CATEGORY_API } from "@/shared/components/lib/api"
+import { motion, useAnimation } from "framer-motion";
 
-import API from "@/shared/components/lib/api"
-import { Card, CardContent, CardTitle } from "@/shared/components/ui/card"
-import {
-    Carousel,
-    CarouselContent,
-    CarouselItem,
-    CarouselNext,
-    CarouselPrevious,
-} from "@/shared/components/ui/carousel"
-import { IProducts } from "@/shared/types/interfaceGlobal"
+
 import axios from "axios"
+
 import Link from "next/link"
 import { useEffect, useState } from "react"
+import { TypographyH1 } from "@/shared/components/typografy/typographyH1";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/shared/components/ui/accordion";
 
 
-  
+interface SubCategory {
+    subId: string;
+    subName: string;
+}
 
-  
-  export function CarouselSize() {
+interface IProducts {
+    categoryName: string;
+    img: string;
+    subCategory: SubCategory[];
+    id: number;
+}
 
-    const [products, setProducts]= useState<IProducts[]>([])
+
+export function CarouselSize() {
+    const controls = useAnimation();
+
+    useEffect(() => {
+        const sequence = async () => {
+            while (true) {
+                await controls.start({
+                    x: "-190%",
+                    transition: {
+                        duration: 20,
+                        ease: "linear",
+                    },
+                });
+                controls.set({ x: 0 });
+            }
+        };
+        sequence();
+    }, [controls]);
+
+
+
+    const [products, setProducts] = useState<IProducts[]>([])
     async function getProducts() {
         try {
-            const {data}= await axios.get(`${API}/flame`)
-            
+            const { data } = await axios.get(`${CATEGORY_API}/category`)
+            console.log(data);
+
             setProducts(data)
+
+
         } catch (error) {
             console.error(error);
-            
+
         }
-        
-       }
-       useEffect(() => {
+
+    }
+    useEffect(() => {
         getProducts()
-        
-       }, []);
-    
+
+    }, []);
+
     return (
-        <Carousel
-            opts={{
-                align: "center",
-            }}
-            className=" max-w-xl absolute top-[25%] left-[25%]  w-1/2    "
-        >
-            <CardTitle className="text-center mb-4 text-2xl text-white">
-                <Link href={"catalog"}>Product Menu</Link>
-            </CardTitle>
-            <CarouselContent className="">
-                {products?.map((el) => (
-                    <CarouselItem key={el.id} className="  w-1/2 md:basis-1/2 lg:basis-1/3 xl:basis-1/3  ">
-                        <div className="p-2 ">
-                            <Card className="dark:bg-white border-none  relative   ">
-                                <Link href={`catalog/category/` + el.id}>
-                                    <p className=" font-bold z-1 w-[80%] ml-[10%] top-[15%]  absolute  bg-card-foreground/45 dark:text-white  dark:bg-slate-800/40  text-white text-center text-base p-[2px]" >{el.productName}</p>
-                                    <CardContent className="relative h-full p-0  flex flex-col gap-6 aspect-square   ">
-                                        {/* <img className="relative object-cover "
-                                         src={el.imageUrl} alt={el.name} /> */}
-                                    </CardContent>
-                                </Link>
-                            </Card>
-                        </div>
-                    </CarouselItem>
-                ))}
-            </CarouselContent >
-            <CarouselPrevious variant={'default'} />
-            <CarouselNext variant={"default"} />
-        </Carousel>
+        <div className="bg-gray-100/80  dark:bg-slate-700/20 w-[100%] p-4  mb-6 h-fit mt-10  " >
+            <div className={`overflow-hidden w-full bg-muted py-4 `}>
+                <motion.div className="hidden sm:flex  gap-8 min-w-full items-center"
+                    animate={controls} >
+
+                    {products.map((el, index) => {
+                        return (<Link className="p-2" href={`catalog/category/` + el.id} key={index}>
+                            <div className="min-w-[200px]  p-4 relative ">
+                                <img
+                                    title={el.categoryName}
+                                    src={`${el.img}`}
+                                    alt={`Product ${index}`}
+                                    className="rounded-xl w-[100px]   " 
+                                />
+                                
+
+                            </div>
+                        </Link>
+                        )
+                    })}
+
+
+                </motion.div>
+            </div>
+            <div className="w-[99%] m-auto md:hidden mt-2 mb-2">
+                {
+                    <Accordion type="single" collapsible className="text-slate-700 dark:text-gray-200  sm:hidden ">
+                        <AccordionItem value="item_1">
+                            <AccordionTrigger className="">
+                                <TypographyH1 className="font-bold text-slate-700 dark:text-gray-200">
+                                    Продукти
+                                </TypographyH1>
+                            </AccordionTrigger>
+                            <AccordionContent>
+                                {
+                                    products.map((product, index) => {
+                                        return <Link key={index} href={`catalog/category/${product.id}`}>
+                                            <div className="flex items-center border-t-1 justify-between  p-2">
+
+                                                <TypographyH1 className="" key={index}>
+
+                                                    {
+                                                        product.categoryName
+                                                    }
+                                                </TypographyH1>
+                                                <img src={product.img} alt={product.categoryName} className="w-[50px]" />
+                                            </div>
+                                        </Link>
+                                    })
+
+
+
+                                }
+                            </AccordionContent>
+
+                        </AccordionItem>
+                    </Accordion>
+                }
+            </div>
+
+        </div>
     )
 }

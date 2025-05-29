@@ -4,7 +4,7 @@ import Link from "next/link";
 
 export default function Footer(){
     const currentYear = new Date().getFullYear()
-    return <footer className=" dark:bg-[#141a2a] bg-muted/90 ">
+    return <footer className=" dark:bg-[#141a2a] bg-muted/90 text-slate-700 dark:text-gray-100 ">
     <div className="container px-4 py-8 md:py-12">
       <div className="grid gap-8 sm:grid-cols-2 md:grid-cols-4 ">
         <div>
@@ -73,7 +73,7 @@ export default function Footer(){
           <h3 className="text-lg font-semibold mb-4">Покупателям</h3>
           <ul className="space-y-2">
             <li>
-              <Link href="/delivery" className="text-sm text-muted-foreground hover:text-foreground">
+              <Link href="/deliver" className="text-sm text-muted-foreground hover:text-foreground">
                 Доставка и оплата
               </Link>
             </li>
@@ -99,11 +99,8 @@ export default function Footer(){
           <ul className="space-y-2">
             <li className="flex items-center">
               <Phone className="h-4 w-4 mr-2 text-red-600" />
-              
-              <Link href="tel:+992 909 12 12 11" className="text-sm text-muted-foreground hover:text-foreground">
-              
                {<PhoneNumberCompany  companyNumber={909121211} />}
-              </Link>
+              
             </li>
             <li className="text-sm text-muted-foreground">г. Москва, ул. Пожарная, д. 112</li>
             <li className="text-sm text-muted-foreground">Пн-Пт: 9:00-18:00</li>
