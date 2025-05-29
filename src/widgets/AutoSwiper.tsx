@@ -1,6 +1,6 @@
 "use client"
 
-import { JSX, ReactElement, useEffect, useState } from "react";
+import {  ReactElement, useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, Pagination, Navigation } from 'swiper/modules';
 import 'swiper/css';

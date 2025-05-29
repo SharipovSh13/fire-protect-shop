@@ -1,6 +1,6 @@
-
+'use client'
 import { useEffect, useState } from "react";
-import { IMycommand, IProducts } from "@/shared/types/interfaceGlobal";
+import { IMycommand} from "@/shared/types/interfaceGlobal";
 import {  MYCOMMAND_API } from "../lib/api";
 import axios from "axios";
 import { TypographyH1 } from "../typografy/typographyH1";

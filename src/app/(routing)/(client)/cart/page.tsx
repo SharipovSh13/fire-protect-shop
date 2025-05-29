@@ -1,33 +1,28 @@
-// export default function Cart(){
-//     return <>
-//     <h1 className="font-bold ml-1.5 text-red-700 ">Page Cart</h1>
-//     </>
-// }
+
 
 "use client"
 
 import { Button } from "@/shared/components/ui/button"
-import { Card, CardHeader, CardTitle, CardContent, CardFooter } from "@/shared/components/ui/card"
+import { Card, CardHeader, CardTitle, CardContent } from "@/shared/components/ui/card"
 import { Input } from "@/shared/components/ui/input"
 import { Table, TableHeader, TableRow, TableHead, TableBody, TableCell } from "@/shared/components/ui/table"
 import { Trash2, Plus, Minus, Flame } from "lucide-react"
 
 export default function Cart() {
-  // Пример данных корзины
   const cartItems = [
     {
       id: 1,
       name: "Огнетушитель ОП-5",
       price: 2500,
       quantity: 2,
-      image: "/fire-extinguisher.jpg"
+      image: "/op5.png"
     },
     {
       id: 2,
       name: "Пожарный рукав 20м",
       price: 1800,
       quantity: 1,
-      image: "/fire-hose.jpg"
+      image: "/op5.png"
     }
   ]
 
@@ -64,7 +59,7 @@ export default function Cart() {
                     <TableRow key={item.id}>
                       <TableCell className="font-medium flex items-center gap-3">
                         <img 
-                          src={"/op5.png"} 
+                          src={item.image} 
                           alt={item.name}
                           className="w-12 h-12 object-cover rounded"
                         />

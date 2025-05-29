@@ -2,8 +2,6 @@
 import { ModeToggle } from "@/shared/components/darkMode";
 import { Search, ShieldUser, ShoppingCart } from "lucide-react";
 import Link from "next/link";
-import { TypographyH1 } from "@/shared/components/typografy/typographyH1";
-import SidebarDrawerMedia from "./SidebarDrawerMedia";
 import CompanyName from "@/shared/components/ui/company-name";
 import CompanyLogo from "@/shared/components/ui/companyLogotipe";
 
@@ -78,7 +76,6 @@ export default function Header() {
 
             </div>
             <div className=" items-center hidden max-sm:block">
-                <SidebarDrawerMedia />
                 <ModeToggle />
 
             </div>

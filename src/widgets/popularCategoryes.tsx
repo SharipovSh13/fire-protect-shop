@@ -1,7 +1,5 @@
 'use client'
-import ToShop from "@/shared/components/ui/addToShop";
 import { Card, CardContent } from "@/shared/components/ui/card";
-import { Flame, Shield, Box } from "lucide-react";
 
 const categories = [
     { title: "Огнетушители", icon:"/ognotushiteli-op1doop10.png" },

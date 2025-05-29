@@ -1,4 +1,5 @@
-import { Flag, Flame, Link } from "lucide-react";
+'use client'
+import { Flame } from "lucide-react";
 import CompanyName from "./company-name";
 
 export default function AboutComponent() {

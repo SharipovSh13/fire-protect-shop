@@ -3,12 +3,10 @@
 
 import { Card, CardContent } from "@/shared/components/ui/card";
 import { Input } from "@/shared/components/ui/input";
-import { Button } from "@/shared/components/ui/button";
 import { useEffect, useState } from "react";
 import AsideBar from "@/widgets/asideBar";
 import axios from "axios";
 import { CATEGORY_API } from "@/shared/components/lib/api";
-import { ShoppingCart } from "lucide-react";
 import { IProducts } from "@/shared/types/interfaceGlobal";
 import Link from "next/link";
 
@@ -60,15 +58,13 @@ export default function Catalog() {
     <div className="grid sm:grid-cols-[200px_1fr] gap-6  ">
       <AsideBar />
 
-      <div className=" grid grid-cols-1   md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {products?.map((product) => (<Link href={`catalog/category/${product.id}`}>
-          <Card key={product.id} className=" relative hover:shadow-slate-700 hover:shadow-[0px_0px_3px_0px] hover:z-100">
-          <CardContent className="p-2">
-            <img src={product.img} alt={product.categoryName} className=" " />
-            <h2 className=" text-xl font-medium text-center dark:text-gray-200 text-slate-700">{product.categoryName}</h2>
+      <div className=" grid grid-cols-1   md:grid-cols-2 lg:grid-cols-3 gap-4">
+        {products?.map((product) => (<Link key={product.id} href={`catalog/category/${product.id}`}>
+          <Card  className=" h-[280px]   hover:shadow-slate-700 hover:shadow-[0px_0px_3px_0px]  ">
+          <CardContent className="grid  grid-rows-[100px_90px_20px] place-items-center   grid-cols-1  ">
+            <img src={product.img} alt={product.categoryName} className="w-[50%] m-auto " />
+            <h2 className=" font-bold text-xl  bg-gray-200/25 text-center    dark:bg-black/85 dark:text-slate-300">{product.categoryName}</h2>
             <p className="text-sm text-gray-600 text-center">{`в наличие ${product.subCategory.length} видов`}</p>
-
-
           </CardContent>
         </Card>
         </Link>

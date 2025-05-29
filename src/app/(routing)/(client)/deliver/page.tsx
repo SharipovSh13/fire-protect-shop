@@ -10,7 +10,7 @@ import {
 } from "@/shared/components/ui/accordion";
 import { Card } from "@/shared/components/ui/card";
 import GeolocationMag from "@/shared/components/ui/geolocatinMag";
-import { Banknote, BanknoteIcon, CreditCard, House, Loader, PackageCheck, ScanLine, Truck } from "lucide-react";
+import { BanknoteIcon, CreditCard, House, Loader, PackageCheck, ScanLine, Truck } from "lucide-react";
 
 export default function Deliver() {
   return (

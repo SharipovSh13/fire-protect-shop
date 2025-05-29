@@ -1,10 +1,6 @@
 // components/home/Bestsellers.tsx
-import { TypographyH1 } from "@/shared/components/typografy/typographyH1";
 import ToShop from "@/shared/components/ui/addToShop";
-import { Button } from "@/shared/components/ui/button";
 import { Card, CardContent } from "@/shared/components/ui/card";
-import { HoverCard, HoverCardContent, HoverCardTrigger } from "@radix-ui/react-hover-card";
-import { ShoppingCart } from "lucide-react";
 
 const products = [
     { name: "Огнетушитель ОП-5", price: "200 TJS", imgUrl: '/op5.png' },

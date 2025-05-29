@@ -6,7 +6,6 @@ import {
     CardContent, 
     CardFooter 
   } from "@/shared/components/ui/card";
-  import { badgeVariants } from "@/shared/components/ui/badge"
   import { 
     LayoutDashboard, 
     Users, 
@@ -20,7 +19,6 @@ import {
   import { Badge } from "@/shared/components/ui/badge";
   
   export default function Catalog() {
-    // Mock data - replace with real data in your implementation
     const stats = [
       { label: "Total Users", value: "1,234", icon: Users },
       { label: "Active Products", value: "567", icon: Package },
@@ -71,8 +69,8 @@ import {
           <section className="flex-1 p-6">
             <div className="mb-6">
               <h2 className="text-2xl font-bold">Overview</h2>
-              <p className="text-muted-foreground">
-                Welcome back, admin. Here's what's happening with your platform.
+              <p className="text-muted-foreground">{
+                "Welcome back, admin. Here's what's happening with your platform."}
               </p>
             </div>
   
@@ -110,7 +108,6 @@ import {
                 </CardHeader>
                 <CardContent>
                   <div className="space-y-4">
-                    {/* Replace with actual activity data */}
                     <div className="flex items-center gap-4">
                       <div className="flex h-10 w-10 items-center justify-center rounded-full bg-muted">
                         <Users className="h-5 w-5" />

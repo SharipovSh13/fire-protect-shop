@@ -46,7 +46,7 @@ export default function CategoryById() {
                                     {foundProduct ? foundProduct.categoryName : "Продукт не найдено"}
                                 </TypographyH1>
 
-                                {foundProduct ? <img src={foundProduct.img} alt={foundProduct.categoryName} className="w-10" /> : "Фото не найдено"}
+                                {foundProduct ? <img  src={foundProduct.img} alt={foundProduct.categoryName} className="w-10" /> : "Фото не найдено"}
                             </div>
                         </AccordionTrigger>
 
@@ -67,7 +67,7 @@ export default function CategoryById() {
             </div>
             <div className="bg-red-500 sm:flex-col">
                 <div className="w-fit">
-                    {foundProduct ? <img src={foundProduct.img} alt={foundProduct.categoryName} className="w-[99%] m-auto " /> : "Фото не найдено"}
+                    {foundProduct ? <img  src={foundProduct.img} alt={foundProduct.categoryName} className={`w-[99%] m-auto`} /> : "Фото не найдено"}
 
                 </div>
                 <h1>Page Category By Id:{foundProduct ? foundProduct.categoryName : "Продукт не найдено"}</h1>

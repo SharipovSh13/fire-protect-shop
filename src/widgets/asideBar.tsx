@@ -2,7 +2,7 @@
 
 import { TypographyH1 } from "@/shared/components/typografy/typographyH1"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/shared/components/ui/accordion"
-import axios, { Axios } from "axios"
+import axios from "axios"
 import {CATEGORY_API} from "@/shared/components/lib/api"
 import Link from "next/link"
 import { useEffect, useState } from "react"

@@ -6,7 +6,6 @@ import { Card, CardContent } from "@/shared/components/ui/card";
 import PhoneNumberCompany from "@/shared/components/ui/phoneNumber";
 import GeolocationMag from "@/shared/components/ui/geolocatinMag";
 import CompanyEmail from "@/shared/components/ui/emailInCompany";
-import CompanyLogo from "@/shared/components/ui/companyLogotipe";
 
 export default function ContactPage() {
   return <section className="m-auto w-[100%]">
